@@ -8,6 +8,7 @@
 #include <WS2812.h>
 
 int LED_COUNT = 12;
+int MAX_BRIGHTNESS = 255;
 WS2812 LED(LED_COUNT); // 1 LED
 	
 cRGB color;
@@ -18,8 +19,8 @@ void setup() {
 
   for (int LED_ID = 1; LED_ID <= 12; LED_ID++) {
     color.b = LED_ID * 21 / (255 / MAX_BRIGHTNESS);
-    color.g = LED_ID * 21;
-    color.r = LED_ID * 21;
+    color.g = LED_ID * 21 / (255 / MAX_BRIGHTNESS);
+    color.r = LED_ID * 21 / (255 / MAX_BRIGHTNESS);
     LED.set_crgb_at(LED_ID - 1, color);
   }
   LED.sync();
