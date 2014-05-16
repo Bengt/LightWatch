@@ -8,7 +8,7 @@
 #include <WS2812.h>
 
 int LED_COUNT = 12;
-int MAX_BRIGHTNESS = 255;
+int MAX_BRIGHTNESS = 100;
 WS2812 LED(LED_COUNT); // 1 LED
 	
 cRGB color;
