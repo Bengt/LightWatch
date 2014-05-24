@@ -7,16 +7,17 @@
 
 #include <WS2812.h>
 
-int LED_COUNT = 12;
+int LED_COUNT = 10;
 int MAX_BRIGHTNESS = 100;
 WS2812 LED(LED_COUNT); // 1 LED
-	
+int test = 2;
 cRGB color;
 
 void setup() {
-    LED.setOutput(9); // Digital Pin 9
+    LED.setOutput(7); // Digital Pin 9
     Serial.begin(9600);
-
+    pinMode(test, OUTPUT);
+    digitalWrite(test, HIGH);
   for (int LED_ID = 1; LED_ID <= 12; LED_ID++) {
     color.b = LED_ID * 21 / (255 / MAX_BRIGHTNESS);
     color.g = LED_ID * 21 / (255 / MAX_BRIGHTNESS);
