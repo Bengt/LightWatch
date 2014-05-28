@@ -57,154 +57,28 @@ A wearable light display for body stress.
     </script>
 </section>
 
-<section data-markdown>
-    <script type="text/template">
-## 3D Printed Flora Band
 
-Make a flexible motion-activated LED arm/wrist band.
-
-![](img/3d_printing_parts.jpg)
-
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-## Initial Attempt
-
-![](img/IMG_20140506_140053176.jpg)
-
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-## Hello, World!
-
-![](img/IMG_20140507_112056905.jpg)
-
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-## Light Sensor Hardware
-
-![](img/IMG_20140507_133303620_HDR.jpg)
-
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-## Light Sensor Test Code
-
-	#include <EEPROM.h>
-
-	const int ledPin = 13;
-	
-	void setup() {
-	  Serial.begin(4800);
-	  
-	  int value;
-	  for (int i = 0; i < 1024; i=i+2) {
-		value = EEPROMReadInt(i);
-		Serial.println((String) i + " " + (String) value);
-	  }
-	  Serial.println("-------------------------------");
-	}
-    </script>
-</section>
+<!--
+copy this to create a new slide:
 
 <section data-markdown>
     <script type="text/template">
 
-## Light Sensor Recording Code
-
-	int address = 0;
-	void loop() {
-	  if(address >= 1024)
-		return;
-		
-	  sensorValue = analogRead(A0);
-	  EEPROMWriteInt(address, sensorValue);
-	  address = address + 2;
-	  
-	  Serial.println((String) sensorValue + " " + (String) EEPROMReadInt(address));
-
-	  delay(3000);
-	}
-
-    </script>
-</section>
-
-
-<section data-markdown>
-    <script type="text/template">
-    
-## EEPROM helper functions
-
-	void EEPROMWriteInt(int p_address, int p_value) {
-		  byte lowByte = ((p_value >> 0) & 0xFF);
-		  byte highByte = ((p_value >> 8) & 0xFF);
-
-		  EEPROM.write(p_address, lowByte);
-		  EEPROM.write(p_address + 1, highByte);
-	}
-
-	unsigned int EEPROMReadInt(int p_address) {
-		  byte lowByte = EEPROM.read(p_address);
-		  byte highByte = EEPROM.read(p_address + 1);
-
-		  return ((lowByte << 0) & 0xFF) + ((highByte << 8) & 0xFF00);
-	}
-
-    </script>
-</section>
-
-
-<section data-markdown>
-    <script type="text/template">
-## Light Sensor Test Run
-
-<img width="450px" src="img/IMG_20140507_122424103_HDR_cut.jpg" />
-<img width="450px" src="img/IMG_20140507_122414122_cut.jpg" />
 
 
     </script>
 </section>
 
-<section data-markdown>
-    <script type="text/template">
-## Light Sensor Test Results
-
-![](img/lightsensor_test.png)
-
-
-    </script>
-</section>
+-->
 
 <section data-markdown>
     <script type="text/template">
-## LED Test Code
 
-	#include <WS2812.h>
-	int LED_COUNT = 12;
-	WS2812 LED(LED_COUNT);
+## Task
 
-	void setup() {
-		LED.setOutput(9); // Digital Pin 9
-		Serial.begin(9600);
-
-	  cRGB color;
-	  for (int LED_ID = 1; LED_ID <= 12; LED_ID++) {
-		color.b = LED_ID * 21;
-		color.g = LED_ID * 21;
-		color.r = LED_ID * 21;
-		LED.set_crgb_at(LED_ID - 1, color);
-	  }
-	  LED.sync();
-	}
+-   extend a watch to an interactive light display
+-   user input for setting the stress
+-   rgb LEDs for visualizing the stress
 
     </script>
 </section>
@@ -212,50 +86,15 @@ Make a flexible motion-activated LED arm/wrist band.
 <section data-markdown>
     <script type="text/template">
 
-## LED Test Results (1)
+## Evaluation: Pressure Sensor
 
-![](ledtest/IMG_20140507_133511848.jpg)
-    </script>
-</section>
+-   method: tested using logging program
+-   feasibility: bad, values not meaningful
+-   verdict: abandoned, because of unreliable input detection
 
-<section data-markdown>
-    <script type="text/template">
+# TODO add data
+# TODO add images
 
-## LED Test Results (2)
-
-![](ledtest/IMG_20140507_133859351.jpg)
-
-
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-
-## LED Test Results (3)
-
-![](ledtest/IMG_20140507_134011452.jpg)
-![](ledtest/IMG_20140507_133943400.jpg)
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-
-## LED Test Results (4)
-
-![](ledtest/IMG_20140507_134108824.jpg)
-
-    </script>
-</section>
-
-<section data-markdown>
-    <script type="text/template">
-
-## LED Test Results (5)
-
-![](ledtest/IMG_20140507_134332720.jpg)
-![](ledtest/IMG_20140507_134234150.jpg)
     </script>
 </section>
 
@@ -263,27 +102,79 @@ Make a flexible motion-activated LED arm/wrist band.
 <section data-markdown>
     <script type="text/template">
 
-## Pulse Sensor
+## Evaluation: 2-Buttons
 
-![](img/PulseSensorAmpedFinger-web_2_grande.jpg)
+-   method: tested using logging program
+-   feasibility: boring, but works
+-   verdict: kept, because of reliability
 
+# TODO add data
+# TODO add images
     </script>
 </section>
+
 
 <section data-markdown>
     <script type="text/template">
 
-## GSR Sensor
+## Evaluation: Potentiometer
 
-![](img/F207KN7HP8PLNVO.LARGE.jpg)
+-   method: internet research
+-   feasibility: unknown, needs to be tested with actual hardware
+-   verdict: abandoned, because there is no more time
 
+# TODO add images
     </script>
 </section>
+
 
 <section data-markdown>
     <script type="text/template">
 
-# Ende
+## Evaluation: Power Supply
+
+-   method: work with watches
+-   idea: move lock to side, put battery on opposing side of the watch
+-   verdict: seems feasible
+
+# TODO add image
+
+    </script>
+</section>
+
+
+<section data-markdown>
+    <script type="text/template">
+
+## Evaluation: Minimizing the Arduino
+
+-   problem: the arduino needs to fit into the 
+-   method: internet research, breadboard prototype
+-   idea: use a ATtiny as a small Arduino replacement
+-   verdict: the circuitry will fit into the watch 
+
+# TODO add image of opened watch
+# TODO add image of minimal 
+
+    </script>
+</section>
+
+
+<section data-markdown>
+    <script type="text/template">
+## Outlook
+
+-   combine component prototypes into initial system prototype
+
+
+    </script>
+</section>
+
+
+<section data-markdown>
+    <script type="text/template">
+
+# The End
 
     </script>
 </section>
