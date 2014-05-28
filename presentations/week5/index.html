@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="LightWatch - Week 2">
+		<meta name="author" content="Bengt Lüers, Marius Wybrands">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+<section data-markdown>
+    <script type="text/template">
+404 &mdash; Bengt Lüers, Marius Wybrands
+
+# LightWatch
+
+<img width="65%" style="border:none;box-shadow:none" src="img/title.png" />
+
+A wearable light display for body stress.
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+## 3D Printed Flora Band
+
+Make a flexible motion-activated LED arm/wrist band.
+
+![](img/3d_printing_parts.jpg)
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+## Initial Attempt
+
+![](img/IMG_20140506_140053176.jpg)
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+## Hello, World!
+
+![](img/IMG_20140507_112056905.jpg)
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+## Light Sensor Hardware
+
+![](img/IMG_20140507_133303620_HDR.jpg)
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+## Light Sensor Test Code
+
+	#include <EEPROM.h>
+
+	const int ledPin = 13;
+	
+	void setup() {
+	  Serial.begin(4800);
+	  
+	  int value;
+	  for (int i = 0; i < 1024; i=i+2) {
+		value = EEPROMReadInt(i);
+		Serial.println((String) i + " " + (String) value);
+	  }
+	  Serial.println("-------------------------------");
+	}
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+
+## Light Sensor Recording Code
+
+	int address = 0;
+	void loop() {
+	  if(address >= 1024)
+		return;
+		
+	  sensorValue = analogRead(A0);
+	  EEPROMWriteInt(address, sensorValue);
+	  address = address + 2;
+	  
+	  Serial.println((String) sensorValue + " " + (String) EEPROMReadInt(address));
+
+	  delay(3000);
+	}
+
+    </script>
+</section>
+
+
+<section data-markdown>
+    <script type="text/template">
+    
+## EEPROM helper functions
+
+	void EEPROMWriteInt(int p_address, int p_value) {
+		  byte lowByte = ((p_value >> 0) & 0xFF);
+		  byte highByte = ((p_value >> 8) & 0xFF);
+
+		  EEPROM.write(p_address, lowByte);
+		  EEPROM.write(p_address + 1, highByte);
+	}
+
+	unsigned int EEPROMReadInt(int p_address) {
+		  byte lowByte = EEPROM.read(p_address);
+		  byte highByte = EEPROM.read(p_address + 1);
+
+		  return ((lowByte << 0) & 0xFF) + ((highByte << 8) & 0xFF00);
+	}
+
+    </script>
+</section>
+
+
+<section data-markdown>
+    <script type="text/template">
+## Light Sensor Test Run
+
+<img width="450px" src="img/IMG_20140507_122424103_HDR_cut.jpg" />
+<img width="450px" src="img/IMG_20140507_122414122_cut.jpg" />
+
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+## Light Sensor Test Results
+
+![](img/lightsensor_test.png)
+
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+## LED Test Code
+
+	#include <WS2812.h>
+	int LED_COUNT = 12;
+	WS2812 LED(LED_COUNT);
+
+	void setup() {
+		LED.setOutput(9); // Digital Pin 9
+		Serial.begin(9600);
+
+	  cRGB color;
+	  for (int LED_ID = 1; LED_ID <= 12; LED_ID++) {
+		color.b = LED_ID * 21;
+		color.g = LED_ID * 21;
+		color.r = LED_ID * 21;
+		LED.set_crgb_at(LED_ID - 1, color);
+	  }
+	  LED.sync();
+	}
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+
+## LED Test Results (1)
+
+![](ledtest/IMG_20140507_133511848.jpg)
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+
+## LED Test Results (2)
+
+![](ledtest/IMG_20140507_133859351.jpg)
+
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+
+## LED Test Results (3)
+
+![](ledtest/IMG_20140507_134011452.jpg)
+![](ledtest/IMG_20140507_133943400.jpg)
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+
+## LED Test Results (4)
+
+![](ledtest/IMG_20140507_134108824.jpg)
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+
+## LED Test Results (5)
+
+![](ledtest/IMG_20140507_134332720.jpg)
+![](ledtest/IMG_20140507_134234150.jpg)
+    </script>
+</section>
+
+
+<section data-markdown>
+    <script type="text/template">
+
+## Pulse Sensor
+
+![](img/PulseSensorAmpedFinger-web_2_grande.jpg)
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+
+## GSR Sensor
+
+![](img/F207KN7HP8PLNVO.LARGE.jpg)
+
+    </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+
+# Ende
+
+    </script>
+</section>
+
+
+<!--- -------------------------- -->
+
+
+
+
+			</div>
+
+		</div>
+
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
