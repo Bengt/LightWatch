@@ -4,3 +4,6 @@
 [submodule "presentations/week5/reveal.js"]
 	path = presentations/week5/reveal.js
 	url = https://github.com/hakimel/reveal.js.git
+[submodule "presentations/week7/reveal.js"]
+	path = presentations/week7/reveal.js
+	url = https://github.com/hakimel/reveal.js.git
