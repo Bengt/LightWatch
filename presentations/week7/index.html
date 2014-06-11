@@ -90,14 +90,15 @@ copy this to create a new slide:
 <section data-markdown>
     <script type="text/template">
 
-## Status
+## Progress
 
 &nbsp;
 
--   Done: explore feasibility
--   Done: evaluate user input modalities
-- 	**Now: **
--	 Next:
+-   done: explore feasibility
+-   done: evaluate user input modalities
+- 	**now: explore sensor input modalities**
+-	 next: build actual prototype
+
 &nbsp;
 
     </script>
@@ -144,56 +145,11 @@ copy this to create a new slide:
 	allowfullscreen>
 </iframe>
 
-    </script>
+</script>
 </section>
 
-
 <section data-markdown>
-    <script type="text/template">
-
-## Evaluation: Pressure Sensor
-
-&nbsp;
-
--   method: tested using logging program
--   feasibility: bad, values not meaningful
--   verdict: abandoned, because of unreliable input detection
-
-&nbsp;
-
-<!-- # TODO add data -->
-
-<img width="45%" src="img/IMG_20140516_123024961.jpg" />
-<img width="45%" src="img/IMG_20140516_125326250.jpg" />
-
-    </script>
-</section>
-
-
-<section data-markdown>
-    <script type="text/template">
-
-## Evaluation: 2-Buttons
-
-&nbsp;
-
--   method: tested using logging program
--   feasibility: boring, but works
--   verdict: kept, because of reliability
-
-&nbsp;
-
-<!-- # TODO add data -->
-
-<img height="300" src="img/20140524_163640.jpg" />
-
-
-    </script>
-</section>
-
-
-<section data-markdown>
-    <script type="text/template">
+		<script type="text/template">
 
 ## Evaluation: Potentiometer
 
@@ -201,15 +157,15 @@ copy this to create a new slide:
 
 -   method: internet research
 -   feasibility: unknown, needs to be tested with actual hardware
--   verdict: abandoned, because there is no more time
+-   verdict: worth trying, waiting for order to arrive
 
-    </script>
+		</script>
 </section>
 
 <section data-markdown>
-    <script type="text/template">
+		<script type="text/template">
 
-## Potentiometer: Variant 0
+## Potentiometer: Layering
 
 &nbsp;
 
@@ -220,89 +176,79 @@ copy this to create a new slide:
 
 <img width="70%" src="img/prototyp_rotary_potentiometer/bottom_side.png" />
 
-    </script>
+</script>
 </section>
 
-
 <section data-markdown>
-    <script type="text/template">
+<script type="text/template">
 
-## Potentiometer: Variant 1
-
-&nbsp;
-
--   potentiometer ontop of the LED ring
--   cutouts for the LEDs
+## RGB-Ring
 
 &nbsp;
 
-<img height="300" src="img/prototyp_rotary_potentiometer/top_front.png" />
-<img height="300" src="img/prototyp_rotary_potentiometer/top_side.png" />
+-	incident: attempted to fit plexiglas into ring
+-  effect: ring is broken
+-  verdict: rings needs protection against force
 
-    </script>
+&nbsp;
+
+![](img/IMG_20140611_152307399_verändert.jpg)
+
+</script>
 </section>
 
-
 <section data-markdown>
-    <script type="text/template">
+<script type="text/template">
 
-## Evaluation: Minimizing the Arduino
+## Ring Protector
 
 &nbsp;
 
--   problem: the arduino needs to fit into the
+-	purpose: distribute force across ring
+-  method: fit acrylic glas using laser cutter
+
+&nbsp;
+
+<img style="border:none; box-shadow:none" src="img/Deckglas.png" />
+
+</script>
+</section>
+
+<section data-markdown>
+		<script type="text/template">
+
+## Evaluation: Arduino Minimizing
+
+&nbsp;
+
+-   problem: the arduino needs to fit into the watchcase
 -   method: internet research, breadboard prototype
 -   idea: use a ATtiny as a small Arduino replacement
 -   verdict: the circuitry will fit into the watch
 
 &nbsp;
 
-<img width="45%" src="img/20140524_163701.jpg" />
-<img width="45%" src="img/Atmel-ATTINY85-20SU.jpg" />
+<img style="width:45%" src="img/IMG_20140611_154521527_verändert.jpg" />
 
-    </script>
+		</script>
 </section>
 
-
 <section data-markdown>
-    <script type="text/template">
-
-## Evaluation: Power Supply
-
-&nbsp;
-
--   method: work with watches
--   idea: move lock to side, put battery on opposing side of the watch
--   verdict: seems feasible
-
-abandoned:
-
-<img width="70%" src="img/20140524_143757.jpg" />
-
-&nbsp;
-
-    </script>
-</section>
-
-
-<section data-markdown>
-    <script type="text/template">
+<script type="text/template">
 
 ## Hardware Concept
 
 &nbsp;
 
-<img style="border:none; box-shadow:none; float:left" width="600px" src="img/hardware.jpg" />
+<img style="border:none; box-shadow:none; float:left" width="600px" src="img/IMG_20140611_150046331_verändert.jpg" />
 
-
--   500 mA LiPo
+-   1000 mA LiPo
 -   ATtiny85
 -   Pulse Sensor
--   2 Push Buttons
+-   Potentiometer
 -   RGB-Ring
 
-
-    </script>
+		</script>
 </section>
 
 
@@ -314,7 +260,7 @@ abandoned:
 &nbsp;
 
 -   output: system measures pulse, displays guessed stress
--   interaction: user corrects visualization to felt stress
+-   interaction: user corrects to felt stress using potentiometer
 
 &nbsp;
 
