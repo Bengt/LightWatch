@@ -13,7 +13,7 @@ int MAX_BRIGHTNESS = 20;
 int RING_PIN = 0;
 
 // globals #evil
-int STATE = 1;
+bool STATE = LOW;
 WS2812 LED(LED_COUNT);
 
 void setup() {
@@ -32,9 +32,8 @@ void loop() {
     LED.set_crgb_at(LED_ID - 1, color);
   }
   LED.sync();
-  
-  // toggle state
-  STATE = (STATE + 1) % 2;
+
+  STATE = !STATE;
   
   delay(1000);
 
