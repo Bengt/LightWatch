@@ -1,3 +1,5 @@
+/* lights the led if the left side of the hotpot is pressed */
+
 // Configuration
 int LED_PIN = 0;
 int POT_PIN = 3;
