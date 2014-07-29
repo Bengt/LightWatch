@@ -10,3 +10,6 @@
 [submodule "presentations/week13/reveal.js"]
 	path = presentations/week13/reveal.js
 	url = https://github.com/hakimel/reveal.js.git
+[submodule "presentations/week11/reveal.js"]
+	path = presentations/week11/reveal.js
+	url = https://github.com/hakimel/reveal.js.git
