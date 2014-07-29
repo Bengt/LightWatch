@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 const int rx = 0;
-const int tx = 3;
+const int tx = 4;
 
 SoftwareSerial mySerial(rx, tx);
 
