@@ -94,7 +94,7 @@ class: center, middle, inverted, accent-red
 
 &nbsp;
 
-<img style="width:600px" src="img/IMG_20140507_122414122_cut.jpg" />
+<img style="width:600px" src="../week2/img/IMG_20140507_122414122_cut.jpg" />
 
 ---
 
