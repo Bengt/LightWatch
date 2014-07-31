@@ -14,25 +14,25 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="revealjs/css/reveal.min.css">
-		<link rel="stylesheet" href="revealjs/css/theme/simple.css">
+		<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
-		
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
 			if( window.location.search.match( /print-pdf/gi ) ) {
 				var link = document.createElement( 'link' );
 				link.rel = 'stylesheet';
 				link.type = 'text/css';
-				link.href = 'revealjs/css/print/pdf.css';
+				link.href = 'reveal.js/css/print/pdf.css';
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
 
 		<!--[if lt IE 9]>
-		<script src="revealjs/lib/js/html5shiv.js"></script>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
 
@@ -66,7 +66,7 @@ Bengt Lüers, Marius Wybrands
 
 Make a flexible motion-activated LED arm/wrist band.
 
-![](img/3d_printing_parts.JPG)
+![](img/3d_printing_parts.jpg)
 
     </script>
 </section>
@@ -75,7 +75,7 @@ Make a flexible motion-activated LED arm/wrist band.
     <script type="text/template">
 ## Initial Attempt
 
-![](img/IMG_20140506_140053176.JPG)
+![](img/IMG_20140506_140053176.jpg)
 
     </script>
 </section>
@@ -84,7 +84,7 @@ Make a flexible motion-activated LED arm/wrist band.
     <script type="text/template">
 ## Hello, World!
 
-![](img/IMG_20140507_112056905.JPG)
+![](img/IMG_20140507_112056905.jpg)
 
     </script>
 </section>
@@ -93,7 +93,7 @@ Make a flexible motion-activated LED arm/wrist band.
     <script type="text/template">
 ## Light Sensor Hardware
 
-![](img/IMG_20140507_133303620_HDR.JPG)
+![](img/IMG_20140507_133303620_HDR.jpg)
 
     </script>
 </section>
@@ -170,8 +170,8 @@ Make a flexible motion-activated LED arm/wrist band.
     <script type="text/template">
 ## Light Sensor Test Run
 
-<img width="450px" src="img/IMG_20140507_122424103_HDR_cut.JPG" />
-<img width="450px" src="img/IMG_20140507_122414122_cut.JPG" />
+<img width="450px" src="img/IMG_20140507_122424103_HDR_cut.jpg" />
+<img width="450px" src="img/IMG_20140507_122414122_cut.jpg" />
 
 
     </script>
@@ -217,7 +217,7 @@ Make a flexible motion-activated LED arm/wrist band.
 
 ## LED Test Results (1)
 
-![](ledtest/IMG_20140507_133511848.JPG)
+![](ledtest/IMG_20140507_133511848.jpg)
     </script>
 </section>
 
@@ -226,7 +226,7 @@ Make a flexible motion-activated LED arm/wrist band.
 
 ## LED Test Results (2)
 
-![](ledtest/IMG_20140507_133859351.JPG)
+![](ledtest/IMG_20140507_133859351.jpg)
 
 
     </script>
@@ -237,8 +237,8 @@ Make a flexible motion-activated LED arm/wrist band.
 
 ## LED Test Results (3)
 
-<img style="width:30%" src="ledtest/IMG_20140507_134011452.JPG" />
-<img style="width:30%" src="ledtest/IMG_20140507_133943400.JPG" />
+<img style="width:30%" src="ledtest/IMG_20140507_134011452.jpg" />
+<img style="width:30%" src="ledtest/IMG_20140507_133943400.jpg" />
     </script>
 </section>
 
@@ -247,7 +247,7 @@ Make a flexible motion-activated LED arm/wrist band.
 
 ## LED Test Results (4)
 
-![](ledtest/IMG_20140507_134108824.JPG)
+![](ledtest/IMG_20140507_134108824.jpg)
 
     </script>
 </section>
@@ -257,8 +257,8 @@ Make a flexible motion-activated LED arm/wrist band.
 
 ## LED Test Results (5)
 
-<img style="width:30%" src="ledtest/IMG_20140507_134332720.JPG" />
-<img style="width:30%" src="ledtest/IMG_20140507_134234150.JPG" />
+<img style="width:30%" src="ledtest/IMG_20140507_134332720.jpg" />
+<img style="width:30%" src="ledtest/IMG_20140507_134234150.jpg" />
     </script>
 </section>
 
@@ -268,7 +268,7 @@ Make a flexible motion-activated LED arm/wrist band.
 
 ## Pulse Sensor
 
-![](img/PulseSensorAmpedFinger-web_2_grande.JPG)
+![](img/PulseSensorAmpedFinger-web_2_grande.jpg)
 
     </script>
 </section>
@@ -278,7 +278,7 @@ Make a flexible motion-activated LED arm/wrist band.
 
 ## GSR Sensor
 
-![](img/F207KN7HP8PLNVO.LARGE.JPG)
+![](img/F207KN7HP8PLNVO.LARGE.jpg)
 
     </script>
 </section>
@@ -301,8 +301,8 @@ Make a flexible motion-activated LED arm/wrist band.
 
 		</div>
 
-		<script src="revealjs/lib/js/head.min.js"></script>
-		<script src="revealjs/js/reveal.min.js"></script>
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.min.js"></script>
 
 		<script>
 
@@ -323,12 +323,12 @@ Make a flexible motion-activated LED arm/wrist band.
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-					{ src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
 
