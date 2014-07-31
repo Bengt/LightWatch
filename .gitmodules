@@ -1,5 +1,5 @@
-[submodule "presentations/week2/revealjs"]
-	path = presentations/week2/revealjs
+[submodule "presentations/week2/reveal.js"]
+	path = presentations/week2/reveal.js
 	url = https://github.com/hakimel/reveal.js.git
 [submodule "presentations/week5/reveal.js"]
 	path = presentations/week5/reveal.js
